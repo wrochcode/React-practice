@@ -1,36 +1,33 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandTwitter } from '@tabler/icons'
-import clsx from 'clsx'
-import { Fragment } from 'react'
+import { useState } from "react"
+import reactLogo from "./assets/react.svg"
+import "./App.css"
 
-function App () {
-  const type = 'submit'
-  const onClick = () => console.log('login with another style..')
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className='bg-slate-900 grid place-content-center min-h-screen'>
-      <div className='flex gap-x-2'>
-        <Button {...{ type, onClick }}>
-          <IconBrandFacebook />
-          Login
-        </Button>
-        <Button className='bg-pink-500' type='reset'>
-          <IconBrandTwitter />
-          Login
-        </Button>
-        <Button className='bg-black' type='button'>
-          <IconBrandGithub />
-          Login
-        </Button>
+    <div className='App'>
+      <div>
+        <a href='https://vitejs.dev' target='_blank'>
+          <img src='/vite.svg' className='logo' alt='Vite logo' />
+        </a>
+        <a href='https://reactjs.org' target='_blank'>
+          <img src={reactLogo} className='logo react' alt='React logo' />
+        </a>
       </div>
+      <h1>Vite + React</h1>
+      <div className='card'>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className='read-the-docs'>
+        Click on the Vite and React logos to learn more
+      </p>
     </div>
-  )
-}
-
-const Button = (props) =>{
-  const { className = 'bg-blue-600', children, text, type = 'submit' } = props
-  return (
-    <button {...props} type={type} className={clsx(className, '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-2 text-white px-4 py-2 rounded')}>
-      {text || children}
-    </button>
   )
 }
 
