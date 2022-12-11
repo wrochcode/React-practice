@@ -1,67 +1,37 @@
-import {
-  IconBrandFacebook,
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandTwitter,
-} from '@tabler/icons'
-import clsx from 'clsx'
+import Button from './components/button.jsx'
+import Card from './components/Card.jsx'
 
-export default function App() {
+function App() {
   const type = 'submit'
   const onClick = () => console.info(`Hallo`)
   return (
-    <div className='bg-slate-900 grid place-content-center min-h-screen'>
-      <div className='flex gap-x-2'>
-        <Button className='bg-green-700' text='Sign Up' />
-
-        <Button
-          {...{
-            className: 'bg-blue-600',
-            onClick: () => console.info(`Hallo`),
-            type: 'submit',
-          }}
-        >
-          <IconBrandTwitter />
-          Login
-        </Button>
-        <Button
-          className={'bg-red-600'}
-          onClick={() => console.info(`Hallo`)}
-          type='reset'
-        >
-          <IconBrandGoogle />
-          Login
-        </Button>
-        <Button className={'bg-blue-900 '} type='submit'>
-          <IconBrandFacebook />
-          Login
-        </Button>
-        <Button type='submit'>
-          <IconBrandGithub />
-          Login
-        </Button>
+    <div className={'bg-slate-100 antialiased flex tracking-tight items-center justify-center min-h-screen'}>
+      <div className='max-w-2xl flex items-center gap-4 w-full'>
+        <Card>
+          <Card.Title>Hello World</Card.Title>
+          <Card.Body>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          </Card.Body>
+          <Card.Footer>
+            <Button>Registered</Button>
+          </Card.Footer>
+        </Card>
+        <Card>
+          <Card.Title>Hello World</Card.Title>
+          <Card.Body>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          </Card.Body>
+          <Card.Footer>
+            <Button>Registered</Button>
+          </Card.Footer>
+        </Card>
       </div>
     </div>
   )
 }
 
-function Button(props) {
-  const {
-    text,
-    children,
-    className = 'bg-black',
-    type = 'submit',
-  } = props
-  return (
-    <button
-      {...props}
-      type={type}
-      className={clsx(
-        className,
-        ` [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center bg-blue-300 text-white px-4 py-2 gap-x-2 rounded`
-      )}
-    >
-      {text || children}
-    </button>
-  )
-}
+export default App
