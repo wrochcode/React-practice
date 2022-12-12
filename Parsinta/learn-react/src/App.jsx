@@ -1,36 +1,42 @@
-import Button from './components/button.jsx'
-import Card from './components/Card.jsx'
+import { useState } from 'react'
+import Button from './components/Button.jsx'
+import PlaceContentCenter from './components/PlaceContentCenter.jsx'
 
 function App() {
-  const type = 'submit'
-  const onClick = () => console.info(`Hallo`)
+  const [name, setName] = useState('Wahyu Tampan')
+  const [count, setCount] = useState(0)
+
+  function handleClick() {
+    if (name == 'Wahyu Tampan') {
+      const nextName = 'Wahyu Tampan Banget'
+      setName('Wahyu Tampan Banget')
+    } else {
+      setName('Wahyu Tampan')
+    }
+    setCount((x) => x + 1)
+  }
+
   return (
-    <div className={'bg-slate-100 antialiased flex tracking-tight items-center justify-center min-h-screen'}>
-      <div className='max-w-2xl flex items-center gap-4 w-full'>
-        <Card>
-          <Card.Title>Hello World</Card.Title>
-          <Card.Body>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </Card.Body>
-          <Card.Footer>
-            <Button>Registered</Button>
-          </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Title>Hello World</Card.Title>
-          <Card.Body>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </Card.Body>
-          <Card.Footer>
-            <Button>Registered</Button>
-          </Card.Footer>
-        </Card>
+    <PlaceContentCenter>
+      <div>{name}</div>
+      <h1 className={' text-5xl font-semibold '}>{count}</h1>
+      <div className='flex items-center gap-3'>
+        <Button className='bg-yellow-600 mt-6 w-30   ' onClick={handleClick}>
+          Change name <br></br>
+          +1
+        </Button>
+        <Button
+          className='bg-yellow-600 mt-6 w-30   '
+          onClick={() => {
+            handleClick()
+            handleClick()
+            handleClick()
+          }}>
+          Change name <br></br>
+          +3
+        </Button>
       </div>
-    </div>
+    </PlaceContentCenter>
   )
 }
 
