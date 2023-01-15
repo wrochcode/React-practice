@@ -19,3 +19,5 @@ to check:
 	npx prettier --check .
 to run formatter after add format code:
 	npm run format
+add tabler icon:
+	npm install @tabler/icons --save
