@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------
+Install React:
+-------------------------------------------------------------------------
+	npm create vite@latest learn-react -- --template react
+-------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------
+instal prettier:
+-------------------------------------------------------------------------
+	npm install --save-dev --save-exact prettier
+
+Make file:
+	.prettierrc.json
+
+to run formatter:
+	npx prettier --write .
+to check:
+	npx prettier --check .
+to run formatter after add format code:
+	npm run format
