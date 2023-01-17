@@ -1,58 +1,57 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandTwitter } from '@tabler/icons'
-import clsx from 'clsx'
+import { useState } from 'react'
 import Button from './components/Button'
 import Card from './components/Card'
+import PlaceContentCenter from './components/PlaceContentCenter'
 
 function App() {
-  const type = 'submit'
-  const onClick = () => console.log('twitter was clicked with another style')
+  // const name = `Excel`
+  const [name, setName] = useState('Excel')
+  //count:
+  const [count, setCount] = useState(0)
+
+  function handleClick() {
+    // name = `Excel Shelby`
+    if (name == 'Excel') {
+      setName('Excel Shelby')
+    } else {
+      setName('Excel')
+    }
+  }
+
+  function addNumber() {
+    setCount(count => count + 1)
+  }
+
   return (
-    <div className={'bg-slate-900 tracking-tight grid place-content-center min-h-screen'}>
-      {/* // <div className={'bg-slate-900 flex items-center justify-center min-h-screen'}> */}
-      <div className='max-w-2xl gap-4 w-full mb-11 text-white antialiased flex items-center justify-center'>
+    <PlaceContentCenter >
+    <div className={'items-center justify-center'}>
+
       <Card>
-        <Card.Title>Lorem</Card.Title>
-        <Card.Body>
-          Minim aliqua enim exercitation culpa qui nostrud. Consequat proident dolore exercitation aute. Deserunt qui dolore dolore commodo commodo adipisicing
-          sit tempor sunt. Et pariatur mollit veniam nulla deserunt nostrud qui. Consectetur incididunt minim laboris velit nisi consectetur officia in.
-        </Card.Body>
-        <Card.Footer> by: Wahyu</Card.Footer>
-        
-        </Card>
-      <Card>
-        <Card.Title>Lorem</Card.Title>
-        <Card.Body>
-          Minim aliqua enim exercitation culpa qui nostrud. Consequat proident dolore exercitation aute. Deserunt qui dolore dolore commodo commodo adipisicing
-          sit tempor sunt. Et pariatur mollit veniam nulla deserunt nostrud qui. Consectetur incididunt minim laboris velit nisi consectetur officia in.
-        </Card.Body>
-        <Card.Footer> by: Wahyu</Card.Footer>
-        
-        </Card>
-      </div>
-      <div className='max-w-2xl w-full flex items-center justify-center'>
-        <div className={'flex gap-x-2'}>
-          <Button text='Register'></Button>
-          <Button {...{ onClick, type }} className={'bg-slate-600'}>
-            <>
-              <IconBrandTwitter />
-              Login
-            </>
-          </Button>
-          <Button className={`bg-pink-600`} onClick={() => console.log('facebook')}>
-            <>
-              <IconBrandFacebook />
-              Login
-            </>
-          </Button>
-          <Button className={`bg-black`} onClick={() => console.log('black')} type='submit'>
-            <>
-              <IconBrandGithub />
-              Login
-            </>
+        <h1 className={' flex justify-center items-center text-2xl underline'}>Ubah Nama</h1>
+        <div className={' flex justify-center items-center mt-4'}>hi {name}</div>
+        <div className={' flex justify-center items-center'}>
+          <Button onClick={handleClick} className={`bg-blue-900 mt-7`}>
+            Change Name
           </Button>
         </div>
-      </div>
+      </Card>
+      <Card>
+      <h1 className={' flex justify-center items-center text-2xl underline'}>Tambah Angka</h1>
+        <h1 className={' flex justify-center items-center text-3xl'}> {count}</h1>
+        <div className={' flex justify-center items-center mt-4 gap-4'}>
+          <Button onClick={addNumber}>Add + 1</Button>
+          <Button
+              onClick={() => {
+                addNumber()
+                addNumber()
+                addNumber()
+              }}>
+              Add + 3
+            </Button>
+        </div>
+      </Card>
     </div>
+    </PlaceContentCenter>
   )
 }
 
