@@ -21,3 +21,6 @@ to run formatter after add format code:
 	npm run format
 add tabler icon:
 	npm install @tabler/icons --save
+add tailwindform
+	open => tailwindform ('https://github.com/tailwindlabs/tailwindcss-forms')
+	
