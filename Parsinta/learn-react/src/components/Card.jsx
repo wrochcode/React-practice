@@ -1,5 +1,5 @@
 // function Card({ title, children, footer }) {
-function Card({ children, footer }) {
+function Card({ children }) {
   return <div className={' p-4 overflow-hidden rounded shadow bg-slate-500 mb-6'}>{children}</div>
 }
 
@@ -8,7 +8,7 @@ function Title({ children }) {
 }
 
 function Body({ children }) {
-  return <p className={' text-lg  font-light mt-3'}>{children}</p>
+  return (<p className={' text-lg  font-light mt-3'}>{children}</p>)
 }
 
 function Footer({ children }) {
