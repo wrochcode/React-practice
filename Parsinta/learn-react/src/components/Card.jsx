@@ -8,7 +8,7 @@ function Title({ children }) {
 }
 
 function Body({ children }) {
-  return (<p className={' text-lg  font-light mt-3'}>{children}</p>)
+  return (<div className={' text-lg  font-light mt-3'}>{children}</div>)
 }
 
 function Footer({ children }) {
