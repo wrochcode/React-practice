@@ -2,7 +2,6 @@
 Install React:
 -------------------------------------------------------------------------
 	npm create vite@latest learn-react -- --template react
--------------------------------------------------------------------------
 
 
 -------------------------------------------------------------------------
@@ -23,4 +22,23 @@ add tabler icon:
 	npm install @tabler/icons --save
 add tailwindform
 	open => tailwindform ('https://github.com/tailwindlabs/tailwindcss-forms')
+	or
+	npm install -D @tailwindcss/forms
+
+-------------------------------------------------------------------------
+instal clsx:
+-------------------------------------------------------------------------
+	npm install --save clsx
+
+
+
+-------------------------------------------------------------------------
+instal tailwind:
+-------------------------------------------------------------------------
+	npm install -D tailwindcss
+	npx tailwindcss init
+Replace Content in tailwind.config.cjs:
+	content: ["./src/**/*.{html,js}"],
+Replace Content in tailwind.config.cjs: =>for form
+	plugins: [require('@tailwindcss/forms'),],
 	
