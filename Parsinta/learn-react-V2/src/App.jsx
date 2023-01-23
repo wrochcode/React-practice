@@ -1,46 +1,41 @@
-import { useRef } from 'react'
-import Button from './components/Button'
-import Card from './components/Card'
+import React, { useEffect, useState } from 'react'
+import Button from './components/Button.jsx'
 import Input from './components/Input.jsx'
 import PlaceContentCenter from './components/PlaceContentCenter'
 
-function App() {
-  const inputRef = useRef(null)
+function App(props) {
+  const [name, setName] = useState('')
+  const [online, setOnline] = useState(false)
 
-  function handleClick() {
-    inputRef.current.focus()
-  }
+  // var-1 =>terpanggil jika render terjadi
+  useEffect(() => {
+    console.info(`render happened`)
+  })
 
-  // ================================================================================
-  // tidak re-render:
-  // const tick = useRef(0)
+  // var-2 =>terpanggil jika render terjadi di awal aja
+  useEffect(() => {
+    console.info(`render happened v2`)
+  }, [])
 
-  // function handleClick() {
-  //   tick.current = tick.current + 1
-  //   console.info(tick)
-  // }
-  // ================================================================================
+  // var-3 =>terpanggil jika render terjadi jika di trigger
+  useEffect(() => {
+    console.info(`i am ${online ? 'Online' : 'offline'}.`)
+  }, [online])
 
-  // ================================================================================
-  // render:
-  // const [tick, setTick] = useState(0)
+  // var-4
+  useEffect(() => {
+    return () => {}
+  })
 
-  // function handleClick() {
-  //   const nextTick = tick + 1
-  //   setTick(nextTick)
-  //   console.info(nextTick)
-  // }
-  // ================================================================================
   return (
     <PlaceContentCenter>
-      <Card>
-        <Card.Title>Use Ref Hooks</Card.Title>
-        {/* <Inputv1 isFocused className= {'border border-slate-500 rounded-lg'}/> */}
-        {/* focus only first column or last column will be happend */}
-        <Input isFocused name={'email'} className={'border border-slate-500 rounded-lg'} placeholder={'Email'} />
-        <Input name={'password'} className={'border border-slate-500 rounded-lg'} placeholder={'Password'} />
-        <Button onClick={handleClick}>Hit me!</Button> <Card.Footer>{/* <Card.Body>You clicked {tick} times.</Card.Body> */}</Card.Footer>
-      </Card>
+      <Input isFocused value={name} onChange={(e) => setName(e.target.value)} />
+      <Button
+        onClick={() => {
+          setOnline((online) => !online)
+        }}>
+        Set Online
+      </Button>
     </PlaceContentCenter>
   )
 }
