@@ -7,7 +7,7 @@ function App(props) {
   const [name, setName] = useState('')
   const [online, setOnline] = useState(false)
   const [onlineText, setOnlineText] = useState('Offline')
-  const [colorButton, setColorButton] = useState('bg-red-600')
+  const [colorButton, setColorButton] = useState('bg-green-600')
 
   // var-1 =>terpanggil jika render terjadi
   useEffect(() => {
@@ -30,13 +30,10 @@ function App(props) {
   })
 
   //tambahan:
-  function toOnline() {
-    onlineText == 'Offline' ? setOnlineText('Online') : setOnlineText(onlineText)
-    onlineText == 'Offline' ? setColorButton('bg-green-600') : setColorButton(colorButton)
-  }
-  function toOffline() {
-    onlineText == 'Online' ? setOnlineText('Offline') : setOnlineText(onlineText)
-    onlineText == 'Online' ? setColorButton('bg-red-600') : setColorButton(colorButton)
+  function changeName() {
+    onlineText == 'Offline' ? setOnlineText('Online') : setOnlineText('Offline')
+    onlineText == 'Offline' ? setColorButton('bg-green-600') : setColorButton('bg-red-600')
+    // console.info(onlineText)
   }
 
   return (
@@ -44,11 +41,25 @@ function App(props) {
       Position: <Button className={`${colorButton} pointer-events-none h-7 w-14`}>{onlineText}</Button>
       <Input isFocused value={name} onChange={(e) => setName(e.target.value)} />
       <div className={' flex justify-center items-center mt-4 gap-4'}>
-        <Button className={`bg-green-600`} onClick={toOnline}>
-          Set Online
+        <Button
+          className={`${colorButton}`}
+          onClick={
+            (() => {
+              setOnline((online) => !online)
+            },
+            changeName)
+          }>
+          Set {onlineText}
         </Button>
-        <Button className={`bg-red-600`} onClick={toOffline}>
-          Set Offline
+        <Button
+          className={`${colorButton}`}
+          onClick={
+            (() => {
+              setOnline((online) => !online)
+            },
+            changeName)
+          }>
+          Set {onlineText}
         </Button>
       </div>
     </PlaceContentCenter>

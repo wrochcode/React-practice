@@ -1,0 +1,2 @@
+Pr:
+-cari boolean in react. example => true or false status
