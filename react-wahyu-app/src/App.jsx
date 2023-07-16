@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { IconBrandTwitterFilled } from '@tabler/icons-react'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+    <div className=' bg-slate-900  grid place-content-center min-h-screen'>
+      <h1 className='text-xl font-normal'>learn react</h1>
+      <div className='flex gap-x-2'>
+        <Button text='Register'>Sign In</Button>
+        <Button
+          text={
+            <>
+              <IconBrandTwitterFilled />
+              twitter
+            </>
+          }
+        />
+        {/* <Button>Sign Up</Button> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
-export default App
+function Button(props) {
+  return (
+    <button className=' bg-blue-600 text-white px-4 py-2 rounded'>
+      {/* Hiiilllooo */}
+      {props.text}
+    </button>
+  )
+}
