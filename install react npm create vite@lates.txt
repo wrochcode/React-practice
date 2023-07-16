@@ -1,0 +1,5 @@
+install react: npm create vite@latest *nama-app -- --template react
+install prettier: npm install --save-dev --save-exact prettier
+file format prettier(jika belum ada, buat!):  .prettierrc.json
+start prettier: npx prettier --write .
+cek prettier: npx prettier --check .
