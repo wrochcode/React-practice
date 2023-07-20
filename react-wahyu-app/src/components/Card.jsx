@@ -1,6 +1,7 @@
 function Card({ title, footer, children }) {
   return (
-    <div className='shadow'>
+    // <div className='shadow bg-slate-50 border-yellow-400 border-spacing-5'>
+    <div className='shadow bg-blue-900 border-yellow-400 border-spacing-5'>
       <h1 className='text-2xl font-semibold'>{title}</h1>
       <div className=' leading-relaxed'>{children}</div>
       <div className='bg-violet-600 '>{footer}</div>
@@ -19,7 +20,8 @@ function Body({children}){
     return <div className=' leading-relaxed p-4'>{children}</div>
 }
 function Footer({children}){
-    return <div className='bg-slate-50 p-4'>{children}</div>
+    // return <div className='bg-slate-50 p-4'>{children}</div>
+    return <div className=' p-4'>{children}</div>
 }
 
 Card.Title = Title

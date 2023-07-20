@@ -1,61 +1,68 @@
+import { IconBrandFacebook, IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react'
+import { useState } from 'react'
 import Button from './components/Button'
 import Card from './components/Card'
+import Input from './components/Input'
+import Label from './components/Label'
+import PlaceContentCenter from './components/PlaceContentCenter'
 
-//function utama
-// export default function App() {
 function App() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+  })
+
+  function onChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  function onSubmit(e){
+    e.preventDefault()
+    console.info(form)
+  }
+
   return (
-    // <div className=' bg-slate-100 grid place-content-center min-h-screen'>
-    <div className=' bg-slate-100 text-slate-800 tracking-tight antialiased items-center flex justify-center min-h-screen'>
-      <div className='max-w-2xl w-full flex items-center gap-4'>
-        {/* <Card title={'Lorem'} footer={<Button>Like</Button>}> */}
-        <Card>
-          <Card.Title>Lorem</Card.Title>
+    <PlaceContentCenter>
+      <Card>
+        <Card.Title>Sign Up</Card.Title>
+        <form onSubmit={onSubmit}>
           <Card.Body>
-            Ut ex excepteur ea nisi ipsum veniam magna exercitation sunt Lorem. Fugiat irure elit qui commodo mollit fugiat. Aute id ut in ut dolore in culpa
-            minim. Quis non ad enim ex quis mollit minim ullamco excepteur anim nostrud aute. Aliqua ipsum culpa ullamco eu cillum laborum ea ex consectetur
-            enim minim. Anim ipsum velit Lorem veniam excepteur laboris qui.
+            <div className='mb-5 border rounded p-4'>
+              <p>Name: {form.name || '-'}</p>
+              <p>Email: {form.email || '-'}</p>
+            </div>
+            <div className='mb-6'>
+              <Label htmlFor='name' value={'Name'} />
+              {/* <Input value={name} onChange={(e) => setForm({ ...form, name: e.target.value })} id={'name'} name={'name'}></Input> */}
+              <Input value={form.name} onChange={onChange} id={'name'} name={'name'}></Input>
+            </div>
+            <div className='mb-6'>
+              <Label htmlFor='email' value={'Email'} />
+              <Input value={form.email} onChange={onChange} id={'email'} name={'email'}></Input>
+            </div>
           </Card.Body>
           <Card.Footer>
-            <Button>Like</Button>
+            <div className='grid place-content-center'>
+              <div className='flex items-center gap-2'>
+                <Button className='bg-red-600'>
+                  <IconBrandGoogle />
+                  Google
+                </Button>
+                <Button className='bg-blue-600'>
+                  <IconBrandFacebook />
+                  Facebook
+                </Button>
+                <Button className='bg-black'>
+                  <IconBrandGithub />
+                  Git Hub
+                </Button>
+              </div>
+            </div>
           </Card.Footer>
-        </Card>
-        <Card>
-          <Card.Title>Lorem</Card.Title>
-          <Card.Body>
-            Ut ex excepteur ea nisi ipsum veniam magna exercitation sunt Lorem. Fugiat irure elit qui commodo mollit fugiat. Aute id ut in ut dolore in culpa
-            minim. Quis non ad enim ex quis mollit minim ullamco excepteur anim nostrud aute. Aliqua ipsum culpa ullamco eu cillum laborum ea ex consectetur
-            enim minim. Anim ipsum velit Lorem veniam excepteur laboris qui.
-          </Card.Body>
-          <Card.Footer>
-            <Button>Like</Button>
-          </Card.Footer>
-        </Card>
-      </div>
-    </div>
+        </form>
+      </Card>
+    </PlaceContentCenter>
   )
 }
-
-// // const Button = (props) =>{
-// function Button(props) {
-//   const { className = ' bg-green-600 ', children, text, type = 'submit' } = props
-//   return (
-//     <button
-//       // type={props.type}
-//       {...props}
-//       type={type}
-//       className={clsx(className, '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1  flex items-center gap-x-2text-white px-4 py-2 rounded')}>
-//       {/* Hiiilllooo */}
-//       {text || children}
-//     </button>
-//   )
-// }
-
-// const Bungkus = () => (
-//   <>
-//     <h1>Hello world</h1>
-//     <h2>Hello kamu</h2>
-//   </>
-// )
 
 export default App

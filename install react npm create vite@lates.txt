@@ -4,3 +4,4 @@ file format prettier(jika belum ada, buat!):  .prettierrc.json
 start prettier: npx prettier --write .
 cek prettier: npx prettier --check .
 tabler(icon): npm install @tabler/icons --save
+input taliwind form : require('@tailwindcss/forms'), =>in tailwind.config.js
