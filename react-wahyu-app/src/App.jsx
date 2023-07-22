@@ -1,65 +1,48 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react'
-import { useState } from 'react'
+import { useRef } from 'react'
 import Button from './components/Button'
 import Card from './components/Card'
-import Input from './components/Input'
-import Label from './components/Label'
+import Inputv2 from './components/Inputv2'
 import PlaceContentCenter from './components/PlaceContentCenter'
 
 function App() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-  })
+  // const tick = useRef(0)
+  const inputRef = useRef(null)
+  // const [tick, setTick] = useState(0)
 
-  function onChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value })
+  //  no re-render:
+  function handleClick() {
+    // inputRef.current.focus()
+    console.info(inputRef)
   }
-
-  function onSubmit(e){
-    e.preventDefault()
-    console.info(form)
-  }
-
+  //  no re-render:
+  // function handleClick() {
+  //   tick.current = tick.current+1
+  //   console.log(`tick : ${tick}`)
+  //   console.log(`tick current: ${tick.current}`)
+  // }
+  // re-render:
+  // function handleClick() {
+  //   const nextTick = tick+1
+  //   setTick(nextTick)
+  //   console.info(nextTick)
+  // }
   return (
     <PlaceContentCenter>
       <Card>
-        <Card.Title>Sign Up</Card.Title>
-        <form onSubmit={onSubmit}>
-          <Card.Body>
-            <div className='mb-5 border rounded p-4'>
-              <p>Name: {form.name || '-'}</p>
-              <p>Email: {form.email || '-'}</p>
-            </div>
-            <div className='mb-6'>
-              <Label htmlFor='name' value={'Name'} />
-              {/* <Input value={name} onChange={(e) => setForm({ ...form, name: e.target.value })} id={'name'} name={'name'}></Input> */}
-              <Input value={form.name} onChange={onChange} id={'name'} name={'name'}></Input>
-            </div>
-            <div className='mb-6'>
-              <Label htmlFor='email' value={'Email'} />
-              <Input value={form.email} onChange={onChange} id={'email'} name={'email'}></Input>
-            </div>
-          </Card.Body>
-          <Card.Footer>
-            <div className='grid place-content-center'>
-              <div className='flex items-center gap-2'>
-                <Button className='bg-red-600'>
-                  <IconBrandGoogle />
-                  Google
-                </Button>
-                <Button className='bg-blue-600'>
-                  <IconBrandFacebook />
-                  Facebook
-                </Button>
-                <Button className='bg-black'>
-                  <IconBrandGithub />
-                  Git Hub
-                </Button>
-              </div>
-            </div>
-          </Card.Footer>
-        </form>
+        <Card.Title>useRef Hook</Card.Title>
+        <Card.Body>
+          {/* <div className='grid place-content-start max-w-2xl'> */}
+            {/* <div className='flex items-center'> */}
+              {/* <input className='bordern text-black px-1 border-slate-600 mr-2' ref={inputRef}/> */}
+              <Inputv2 placeholder='email' isFocused className='bordern text-black border-slate-600 mr-2' />
+              <Inputv2 placeholder='password' className='bordern text-black py-7 px-1 border-slate-600 mr-2' />
+              <Button className='bg-slate-900 my-7 border h-7 max-w-fit border-yellow-200' onClick={handleClick}>
+                Tick
+              </Button>
+            {/* </div> */}
+          {/* </div> */}
+        </Card.Body>
+        {/* <Card.Footer> you clicked {tick.current} times</Card.Footer> */}
       </Card>
     </PlaceContentCenter>
   )

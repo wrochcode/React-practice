@@ -8,6 +8,7 @@ import Input from './components/Input'
 import Label from './components/Label'
 import PlaceContentCenter from './components/PlaceContentCenter'
 
+//input name
 function App() {
   const [form, setForm] = useState({
     name: '',

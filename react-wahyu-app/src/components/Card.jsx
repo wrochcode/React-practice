@@ -1,7 +1,7 @@
 function Card({ title, footer, children }) {
   return (
     // <div className='shadow bg-slate-50 border-yellow-400 border-spacing-5'>
-    <div className='shadow bg-blue-900 border-yellow-400 border-spacing-5'>
+    <div className='shadow bg-blue-950/60 border-yellow-400 border-spacing-5'>
       <h1 className='text-2xl font-semibold'>{title}</h1>
       <div className=' leading-relaxed'>{children}</div>
       <div className='bg-violet-600 '>{footer}</div>
