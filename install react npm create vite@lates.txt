@@ -6,3 +6,4 @@ cek prettier: npx prettier --check .
 tabler(icon): npm install @tabler/icons --save
 input taliwind form : require('@tailwindcss/forms'), =>in tailwind.config.js
 install clsx: npm install --save clsx
+install axios (for json): npm i axios
