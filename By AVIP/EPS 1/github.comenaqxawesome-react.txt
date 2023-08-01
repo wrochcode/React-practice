@@ -1,2 +1,8 @@
 github.com/enaqx/awesome-react
 ifelse.io/2018/07/04/a-guide-to-the-react-ecosystem
+
+Alternatif for limit in react:
+Static site -> Gatsby.js
+Server Side Rendering -> Next.js
+State Management -> Redux
+Mobile App -> React Native
